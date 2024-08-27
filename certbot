@@ -1,0 +1,84 @@
+HTTP TO HTTPS
+
+CERTBOT INSTALL:
+pip install certbot-nginx 
+sudo apt install certbot - nginx
+sudo certbot --nginx -d dataterrain-test.net -d backend.dataterrain-test.net
+sudo certbot --nginx -d  backend.dataterrain-test.net
+=================================================================================================
+
+
+
+To uninstall Nginx and Certbot from your Ubuntu server, follow these steps:
+
+### 1. **Stop Nginx Service**
+
+First, stop the Nginx service:
+
+```bash
+sudo systemctl stop nginx
+```
+
+### 2. **Uninstall Nginx**
+
+To remove Nginx:
+
+```bash
+sudo apt-get remove --purge nginx nginx-common
+```
+
+This command will remove Nginx and its configuration files.
+
+To remove any remaining dependencies that are no longer needed:
+
+```bash
+sudo apt-get autoremove
+```
+
+### 3. **Uninstall Certbot**
+
+To remove Certbot, use:
+
+```bash
+sudo apt-get remove --purge certbot
+```
+
+If you installed Certbot via `snap`, you can remove it with:
+
+```bash
+sudo snap remove certbot
+```
+
+### 4. **Remove Certbot Configuration Files**
+
+Certbot stores its configuration files and certificates in `/etc/letsencrypt/`. To remove these files:
+
+```bash
+sudo rm -rf /etc/letsencrypt
+```
+
+### 5. **Remove Any Related Files**
+
+If you want to remove any remaining files related to Nginx or Certbot:
+
+```bash
+sudo rm -rf /var/lib/nginx
+sudo rm -rf /var/log/nginx
+```
+
+### 6. **Verify Removal**
+
+Finally, verify that Nginx and Certbot have been uninstalled:
+
+```bash
+nginx -v
+certbot --version
+```
+
+These commands should return an error indicating that the commands are not found, confirming that Nginx and Certbot have been removed.
+
+This will completely uninstall Nginx and Certbot from your Ubuntu server.
+
+
+
+
